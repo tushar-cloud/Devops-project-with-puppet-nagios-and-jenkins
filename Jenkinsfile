@@ -4,7 +4,7 @@ pipeline {
         PUPPET_ENVIRONMENT = 'production'
         PUPPET_MANIFEST = '/etc/puppet/manifests/manifest.pp'
         PUPPET_MODULES_DIR = '/etc/puppet/repo/modules'
-        GIT_REPO = 'https://github.com/tushar-cloud/Devops-project-with-puppet-nagios-and-jenkins.git'
+        GIT_REPO = 'git@github.com:tushar-cloud/Devops-project-with-puppet-nagios-and-jenkins.git'
         GIT_BRANCH = 'main'
     }
     stages {
