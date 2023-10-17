@@ -12,6 +12,22 @@ pipeline {
                 git branch: "${GIT_BRANCH}", url: "${GIT_REPO}"
             }
         }
+        stage('Install Puppet Nagios') {
+            steps {
+                // Install Puppet nagios
+                script {
+                    sh "puppet module install puppet/nagios"
+                }
+            }
+        }
+        stage('Install Puppet Monit') {
+            steps {
+                // Install Puppet monit
+                script {
+                    sh "puppet module install puppet/monit"
+                }
+            }
+        }
         stage('Apply Puppet Manifest') {
             steps {
                 // Apply Puppet manifest
