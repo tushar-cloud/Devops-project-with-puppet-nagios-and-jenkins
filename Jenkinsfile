@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         PUPPET_ENVIRONMENT = 'production'
-        PUPPET_MANIFEST = '/etc/puppet/manifests/manifest.pp'
         PUPPET_MODULES_DIR = '/etc/puppet/repo/modules'
         GIT_REPO = 'https://github.com/tushar-cloud/Devops-project-with-puppet-nagios-and-jenkins.git'
         GIT_BRANCH = 'main'
@@ -17,7 +16,7 @@ pipeline {
             steps {
                 // Apply Puppet manifest
                 script {
-                    sh "puppet apply --environment=${PUPPET_ENVIRONMENT} ${PUPPET_MANIFEST}"
+                    sh "puppet apply --environment=${PUPPET_ENVIRONMENT} $WORKSPACE/manifests/site.pp"
                 }
             }
         }
