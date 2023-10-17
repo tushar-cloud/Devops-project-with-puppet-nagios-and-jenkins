@@ -13,15 +13,6 @@ pipeline {
                 git branch: "${GIT_BRANCH}", url: "${GIT_REPO}"
             }
         }
-        stage('Install Puppet Modules') {
-            steps {
-                // Install Puppet modules using librarian-puppet
-                script {
-                    sh 'gem install librarian-puppet --no-document'
-                    sh 'librarian-puppet install --path=${PUPPET_MODULES_DIR}'
-                }
-            }
-        }
         stage('Apply Puppet Manifest') {
             steps {
                 // Apply Puppet manifest
