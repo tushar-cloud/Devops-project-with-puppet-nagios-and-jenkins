@@ -1,4 +1,5 @@
-file { '/var/www/html/index.html':
-  ensure  => present,
-  content => "<html>\n<body>\n<h1>Hello, new ddds Puppet!</h1>\n</body>\n</html>\n",
+file { '/var/www/html/':
+  ensure  => directory,
+  source  => '/tmp/repository', # Use the cloned repository as the source
+  recurse => true,
 }
