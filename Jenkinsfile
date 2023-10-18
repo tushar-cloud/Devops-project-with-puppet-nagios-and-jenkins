@@ -15,8 +15,6 @@ pipeline {
             steps {
                 // Apply Puppet manifest
                 script {
-                    sh "chmod +x -R ${env.WORKSPACE}"
-                    sh "sudo chmod -R 777 /var/www/html/"
                     sh "puppet apply --environment=${PUPPET_ENVIRONMENT} $WORKSPACE/manifests/site.pp"
                 }
             }
