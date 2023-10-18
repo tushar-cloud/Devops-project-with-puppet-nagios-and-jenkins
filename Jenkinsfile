@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         PUPPET_ENVIRONMENT = 'production'
-        PUPPET_MODULES_DIR = '/etc/puppet/repo/modules'
         GIT_REPO = 'https://github.com/tushar-cloud/Devops-project-with-puppet-nagios-and-jenkins.git'
         GIT_BRANCH = 'main'
     }
@@ -10,22 +9,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: "${GIT_BRANCH}", url: "${GIT_REPO}"
-            }
-        }
-        stage('Install Puppet Nagios') {
-            steps {
-                // Install Puppet nagios
-                script {
-                    sh "puppet module install puppet/nagios"
-                }
-            }
-        }
-        stage('Install Puppet Monit') {
-            steps {
-                // Install Puppet monit
-                script {
-                    sh "puppet module install puppet/monit"
-                }
             }
         }
         stage('Apply Puppet Manifest') {
