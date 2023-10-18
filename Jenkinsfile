@@ -16,6 +16,7 @@ pipeline {
                 // Apply Puppet manifest
                 script {
                     sh "cp $WORKSPACE/files/* /repository/"
+                    sh "sudo su - root -c 'whoami'"
                     sh "puppet apply --environment=${PUPPET_ENVIRONMENT} $WORKSPACE/manifests/site.pp"
                 }
             }
