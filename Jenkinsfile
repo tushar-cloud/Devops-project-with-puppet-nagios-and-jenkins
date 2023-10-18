@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Apply Puppet manifest
                 script {
-                    sh "sudo puppet apply --environment=${PUPPET_ENVIRONMENT} $WORKSPACE/manifests/site.pp"
+                    sh "puppet apply --environment=${PUPPET_ENVIRONMENT} $WORKSPACE/manifests/site.pp"
                 }
             }
         }
